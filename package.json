@@ -1,0 +1,27 @@
+{
+  "name": "generate-ipa-download-plist",
+  "version": "1.0.0",
+  "description": "generate ipa download plist xml",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "plist": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soontao/generate-ipa-download-plist.git"
+  },
+  "author": "Theo Sun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Soontao/generate-ipa-download-plist/issues"
+  },
+  "homepage": "https://github.com/Soontao/generate-ipa-download-plist#readme",
+  "dependencies": {
+    "ipa-extract-info": "^1.2.3",
+    "qrcode": "^1.2.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
