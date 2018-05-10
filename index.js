@@ -3,13 +3,10 @@ var { isArray } = require("util")
 var { exit, cwd, argv } = require("process")
 var readline = require("readline");
 var { join } = require("path")
-var gen_plist = require("./generate_plist")
 var { readFileSync, writeFileSync, existsSync, openSync } = require("fs")
 var cl = readline.createInterface(process.stdin, process.stdout);
-var qr = require("qrcode")
 var extract = require('ipa-extract-info');
-
-var tmp_link = (opt) => `itms-services://?action=download-manifest&url=https://untitled-qh3cmicqfp6d.runkit.sh/?opt=${JSON.stringify(opt)}`
+var qr = require("qrcode-terminal")
 
 var question = function (q) {
   return new Promise((res, rej) => {
@@ -30,7 +27,6 @@ var pExtract = function (path) {
     });
   });
 };
-
 
 var gen_link = function (url) {
   return `itms-services://?action=download-manifest&url=${url}`
@@ -53,6 +49,9 @@ var gen_link = function (url) {
         name: info.CFBundleDisplayName,
         version: info.CFBundleShortVersionString
       };
+      var pinfo_link = gen_link(`https://pinfo-link.fornever.org/${opt.id}/${opt.version}`);
+      console.log(`link is ${pinfo_link}`)
+      qr.generate(pinfo_link)
       exit(0)
     } else {
       console.error("plist invalid!")

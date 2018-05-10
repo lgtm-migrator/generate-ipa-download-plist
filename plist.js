@@ -1,4 +1,4 @@
-module.exports = (opt = { url: "", version: "0.0.1", name: "" }) => `<?xml version="1.0" encoding="utf-8"?>
+const gen_plist = (opt = { url: "", version: "0.0.1", name: "" }) => `<?xml version="1.0" encoding="utf-8"?>
 <plist version="1.0">
   <dict>
     <key>items</key>
@@ -28,3 +28,6 @@ module.exports = (opt = { url: "", version: "0.0.1", name: "" }) => `<?xml versi
     </array>
   </dict>
 </plist>`
+
+
+module.exports = { gen_plist }
